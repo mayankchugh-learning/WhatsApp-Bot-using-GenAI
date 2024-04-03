@@ -28,7 +28,7 @@ pip install -r requirements.txt
 ```bash
 python app.py
 ```
-
+https://camo.githubusercontent.com/1e231978c886298f01458dbc255c3965c70b0857f6ef55d16412c4deb65134f4/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f76322f726573697a653a6669743a313430302f666f726d61743a776562702f312a7745685353565736625f7439334a53413855366b62412e706e67
 
 
 Whatsapp-Chatbot-with-OpenAI-and-Twilio is a Python chatbot that uses OpenAI's GPT-3 NLP model to generate WhatsApp message responses. Built with Flask and Twilio API, this demo project showcases how to build a chatbot and can be customized. The code is on GitHub under an open-source license.
