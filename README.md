@@ -7,7 +7,7 @@ This application makes use of the [Flask](https://flask.palletsprojects.com/en/1
 
 To use it, ensure you have an active phone number and WhatsApp installed in your smartphone. Create an account with Twilio then register your smartphone with your account(see technical details for more info). You will need to send the code given for your smartphone as a message to the number provided in your account.
 
-![WhatsApp Chatbot Architechture](WhatsApp CHAT GPT Architechture.gif)
+![WhatsApp Chatbot Architechture](https://github.com/mayankchugh-learning/WhatsApp-Bot-using-GenAI/blob/main/WhatsApp%20CHAT%20GPT%20Architechture.gif)
 
 ### Tools Used
 * Python for programming (Python 3.8.19)
@@ -110,4 +110,4 @@ You can invite your friends to your Sandbox. Ask them to send a WhatsApp Message
 
 ### References
 
-WhatsApp Bot Documentation.pdf
+[WhatsApp Bot Documentation.pdf](https://github.com/mayankchugh-learning/WhatsApp-Bot-using-GenAI/blob/main/WhatsApp%20Bot%20Documentation.pdf)
