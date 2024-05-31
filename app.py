@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 anyscale_api_key=os.getenv("ANY_SCALE_API_KEY")
 anyscale_base_url = os.getenv("ANY_SCALE_API_BASE")
-MODEL_NAME = 'meta-llama/Meta-Llama-3-8B-Instruct'
+MODEL_NAME = "llama3" #'meta-llama/Meta-Llama-3-8B-Instruct'
 
 account_sid = os.getenv("TWILIO_ACCOUNT_SID")
 auth_token = os.getenv("TWILIO_AUTH_TOKEN")
@@ -26,10 +26,18 @@ def index():
 # Create a Twilio client object with your account SID and auth token
 client =  Client(account_sid, auth_token)
 #clientopenAi = OpenAI()
+# clientopenAi = OpenAI(
+#      base_url="https://api.endpoints.anyscale.com/v1",
+#      api_key=anyscale_api_key 
+# )
+
 clientopenAi = OpenAI(
-     base_url="https://api.endpoints.anyscale.com/v1",
-     api_key=anyscale_api_key 
+    base_url="http://localhost:11434/v1",
+    api_key="NA"
 )
+
+
+
 # Create a list to store the last 10 conversations/queries
 history = []
 
@@ -59,9 +67,9 @@ def handle_incoming_message():
 
             response = clientopenAi.chat.completions.create(
             model=MODEL_NAME,
-            response_format={ "type": "json_object" },
+            
             messages=[
-                {"role": "system", "content": "You are a helpful assistant designed to output JSON."},
+                {"role": "system", "content": "You are a helpful assistant"},
                 {"role": "user", "content": prompt}
             ]
             ).choices[0].message.content
