@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 anyscale_api_key=os.getenv("ANY_SCALE_API_KEY")
 anyscale_base_url = os.getenv("ANY_SCALE_API_BASE")
-MODEL_NAME = "llama3" #'meta-llama/Meta-Llama-3-8B-Instruct'
+MODEL_NAME = 'meta-llama/Meta-Llama-3-8B-Instruct' #"llama3" 
 
 account_sid = os.getenv("TWILIO_ACCOUNT_SID")
 auth_token = os.getenv("TWILIO_AUTH_TOKEN")
@@ -30,16 +30,16 @@ client =  Client(account_sid, auth_token)
 #clientopenAi = OpenAI()
 
 # Anyscale API Key Code
-# clientopenAi = OpenAI(
-#      base_url="https://api.endpoints.anyscale.com/v1",
-#      api_key=anyscale_api_key 
-# )
+clientopenAi = OpenAI(
+     base_url="https://api.endpoints.anyscale.com/v1",
+     api_key=anyscale_api_key 
+)
 
 # Ollama ode
-clientopenAi = OpenAI(
-    base_url="http://localhost:11434/v1",
-    api_key="NA"
-)
+# clientopenAi = OpenAI(
+#     base_url="http://localhost:11434/v1",
+#     api_key="NA"
+# )
 
 # Create a list to store the last 10 conversations/queries
 history = []
