@@ -25,18 +25,21 @@ def index():
 
 # Create a Twilio client object with your account SID and auth token
 client =  Client(account_sid, auth_token)
+
+# OpenAI API Key Code
 #clientopenAi = OpenAI()
+
+# Anyscale API Key Code
 # clientopenAi = OpenAI(
 #      base_url="https://api.endpoints.anyscale.com/v1",
 #      api_key=anyscale_api_key 
 # )
 
+# Ollama ode
 clientopenAi = OpenAI(
     base_url="http://localhost:11434/v1",
     api_key="NA"
 )
-
-
 
 # Create a list to store the last 10 conversations/queries
 history = []
