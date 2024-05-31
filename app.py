@@ -7,15 +7,16 @@ from dotenv import load_dotenv
 import os
 import sys
 
+
 load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
-MODEL_NAME = "gpt-3.5-turbo"
-print(api_key)
+app = Flask(__name__)
+
+anyscale_api_key=os.getenv("ANY_SCALE_API_KEY")
+anyscale_base_url = os.getenv("ANY_SCALE_API_BASE")
+MODEL_NAME = 'meta-llama/Meta-Llama-3-8B-Instruct'
 
 account_sid = os.getenv("TWILIO_ACCOUNT_SID")
 auth_token = os.getenv("TWILIO_AUTH_TOKEN")
-twilio_phone_number = os.getenv("TWILIO_PHONE_NUMBER")
-whatsapp_phone_number = os.getenv("WHATSAPP_PHONE_NUMBER")
 
 app = Flask(__name__)
 @app.route ("/",methods=["GET", "POST"])
@@ -24,7 +25,11 @@ def index():
 
 # Create a Twilio client object with your account SID and auth token
 client =  Client(account_sid, auth_token)
-clientopenAi = OpenAI()
+#clientopenAi = OpenAI()
+clientopenAi = OpenAI(
+     base_url="https://api.endpoints.anyscale.com/v1",
+     api_key=anyscale_api_key 
+)
 # Create a list to store the last 10 conversations/queries
 history = []
 
@@ -32,17 +37,6 @@ history = []
 @app.route('/sms', methods=['POST'])
 def handle_incoming_message():
 
-    '''responseopenAI = clientopenAi.chat.completions.create(
-    model="gpt-3.5-turbo-0125",
-    response_format={ "type": "json_object" },
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant designed to output JSON."},
-        {"role": "user", "content": "Who won the world series in 2020?"}
-    ]
-    )
-    print(responseopenAI.choices[0].message.content)'''
-
-    print(openai.__version__)
     try:
         
         incoming_message = request.form['Body']
@@ -86,9 +80,10 @@ def handle_incoming_message():
             twilio_response = MessagingResponse()
 
             # Add the response to the Twilio MessagingResponse object
-            twilio_response.message(response)
+            msg = twilio_response.message()
+            msg.body(response)
+
             # Send the response back to the user
-            
             print("twilio_response :",twilio_response)
 
             # Return the Twilio MessagingResponse object
@@ -96,10 +91,6 @@ def handle_incoming_message():
     except:
         pass
     return 'OK',200
-
-
-
-
 
 
 if __name__ == '__main__':

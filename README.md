@@ -33,51 +33,50 @@ If you do not want to create your own project but would prefer to use this proje
 1. Clone this repo:
 
 ```python
-$ git clone https://github.com/mayankchugh-learning/WhatsApp-Bot-using-GenAI.git
+git clone https://github.com/mayankchugh-learning/WhatsApp-Bot-using-GenAI.git
 ```
 
 2. Move into the cloned directory:
 
 ```python
-$ cd WhatsApp-Bot-using-GenAI
+cd WhatsApp-Bot-using-GenAI
 ```
 
 3. Create and activate your virtual environment:
 
 ```python
-$ conda create -p WhatsAppVenv python=3.8 -y
+conda create -p WhatsAppVenv python=3.8 -y
 ```
 
 ```python
-$ source activate ./WhatsAppVenv
+source activate ./WhatsAppVenv
 ```
 
 4. Install used dependencies
 
 ```python
-(WhatsAppVenv)$ pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 5. Before you can run your server, remember to create a `.env` file following the guidance seen in the `.env.template`. Create a `.env` file in the root directory:
 
 ```python
-(whatsapp-chatbot)$ touch .env
+touch .env
 ```
 
 6. Update the `.env` file with all the necessary details.
 
 ```python
-OPENAI_API_KEY = 
-TWILIO_ACCOUNT_SID=
-TWILIO_AUTH_TOKEN=
-TWILIO_PHONE_NUMBER=
-WHATSAPP_PHONE_NUMBER=
+TWILIO_ACCOUNT_SID="Enter TWILIO ACCOUNT SID here."
+TWILIO_AUTH_TOKEN="Enter TWILIO AUTH TOKEN here."
+ANY_SCALE_API_BASE="Enter the base URL of ANY Scale's RESTful API here."
+ANY_SCALE_API_KEY= "Enter the API Key of ANY Scale's API Key here."
 ```
 
 7. Run the application:
 
 ```python
-(whatsapp-chatbot)$ python app.py
+python app.py
 ```
 
 Once your application is running, you can access your localhost on http://127.0.0.1:5000/. Additionally, if you look carefully in your terminal, you will see * Tunnel URL: NgrokTunnel: "https://4209c9af6d43.ngrok.io" -> "http://localhost:5000"
